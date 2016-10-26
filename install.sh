@@ -2,6 +2,9 @@
 # ensure log dir exists - otherwise postConfigure errors because rsyslogd not running yet
 mkdir -p /var/log/mariadb/columnstore/
 
+# need to fix sudo running as the install doesn't recognize running as root so issues sudo commands.
+sed -i -e 's/Defaults    requiretty.*/ #Defaults    requiretty/g' /etc/sudoers
+
 # postConfigure with inputs for standard single server install
 /bin/echo -e "1\ncolumnstore-1\n1\n1\n" | /usr/local/mariadb/columnstore/bin/postConfigure
 
