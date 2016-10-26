@@ -28,7 +28,7 @@ $ docker build -t david:mcs .
 $ docker run -d -p 4306:3306 -v /home/david/dev/dbt3:/mnt/dbt3 --name mcs david:mcs
 ```
 - Native tools on the host server can connect to columnstore on host 127.0.0.1, port 4306 (or whatever was specified with -p). The root user is setup to allow access from any host and has no password, so this container should not be run for any sort of production use case or with sensitive data. The install.sh script can be modified to change default security settings.
-- It may take a few
+- It may take a few seconds for the MariaDB server to start listening on the port and accept queries.
 - To access tools such as mcsadmin and cpimport for data loading, it is easiest to run docker exec for shell access into the container:
 ```sh
 $ docker exec -it mcs bash
