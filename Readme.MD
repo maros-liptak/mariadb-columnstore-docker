@@ -49,6 +49,6 @@ $ docker rm -v mcs
 ```
 - To remove the image
 ```sh
-$ docker rmi david:mcs
+$ docker rmi mariadb:mcs
 ```
 
